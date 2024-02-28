@@ -16,6 +16,7 @@ import Admin from '../pages/admin'
 import Logout from './../services/logout';
 import AddProduct from './../pages/addProduct';
 import UpdateProduct from './../pages/updateProduct';
+import LoanForm from '../pages/loanForm';
 
 class Routes extends Component {
   state = {
@@ -33,6 +34,7 @@ class Routes extends Component {
         <Route path="/admin/addProduct" component={AddProduct} />
         <Route path="/admin/updateProduct" component={UpdateProduct} />
         <Route path="/admin" component={Admin} />
+        <Route path="/loan" component={LoanForm} />
 
         {/* <Route path="/cart"><Cart cart={this.props.cart} handleDelete={this.props.handleDelete} handleIncrement={this.props.handleIncrement} handleDecrement={this.props.handleDecrement} /></Route> */}
 
@@ -41,7 +43,6 @@ class Routes extends Component {
           if(!this.props.user) return <Redirect to='/login'/>
           return <Cart cart={this.props.cart} handleDelete={this.props.handleDelete} handleIncrement={this.props.handleIncrement} handleDecrement={this.props.handleDecrement} />
         }}/>
-
 
         <Route path="/products/:category/:product" render={(props) => (
           <ProductDetailsPage category={props.match.params.category} product={props.match.params.product} cart={this.state.cart} handleAddCart={this.state.handleAddCart} />
